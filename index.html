@@ -31,10 +31,11 @@
                     alert(e);
                 })
                 $.ajax({
-                    type: 'GET',
-                    crossDomain: true,
-                    headers: { Access-Control-Allow-Headers: *},
-                    dataType: 'jsonp',
+                    type: 'GET', 
+		    contentType: 'application/json',
+		    data: JSONObject,
+		    headers: { 'Access-Control-Allow-Origin': '*' }, //add this line
+		    dataType: 'json',   
                     url: $("#inp").val(),
                     success: function (result)
                     {
