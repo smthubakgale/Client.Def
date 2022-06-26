@@ -33,8 +33,7 @@
                 $.ajax({
                     type: 'GET',
                     crossDomain: true,
-                    headers: { 'Access-Control-Allow-Origin': 'https://client-def.vercel.app',
-			      'Origin' : 'https://client-def.vercel.app' },
+                    headers: { Access-Control-Allow-Headers: *},
                     dataType: 'jsonp',
                     url: $("#inp").val(),
                     success: function (result)
