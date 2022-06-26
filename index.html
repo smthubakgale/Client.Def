@@ -34,9 +34,7 @@
                     type: 'GET', 
 		    contentType: 'application/json',
 		    data: 'json',
-		    headers: { 'Cache-Control': 'no-cache', 
-				'Pragma': 'no-cache',
-				'Expires': '0'}, 
+		    'Access-Control-Allow-Origin':"*",
 		    dataType: 'json',   
                     url: $("#inp").val(),
                     success: function (result)
