@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        jQuery ajax() Method
+    </title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+
+    <script>
+		$(document).ready(function() {
+			$("li:parent").css("background-color", "green");
+		});
+    </script>
+</head>
+
+<body style="text-align:center;">
+
+    <input id="inp" value="https://testing-webapi.herokuapp.com/weatherforecast?json=sam" />
+    <button>Send</button>
+     
+    <script>
+		$(document).ready(function() {
+            $("button").click(function () {
+                alert("a");
+
+                $.get($("#inp").val(), function (e)
+                {
+                    alert(e);
+                })
+                $.ajax({
+                    type: 'GET',
+                    crossDomain: true,
+                    headers: { 'Access-Control-Allow-Origin': 'https://reqbin.com/zwlqstww' },
+                    dataType: 'jsonp',
+                    url: $("#inp").val(),
+                    success: function (result)
+                    {
+					  alert(result);
+                    }
+                });
+                alert("b");
+			});
+		});
+    </script>
+</body>
+
+</html>
