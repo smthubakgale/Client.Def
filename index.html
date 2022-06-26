@@ -26,22 +26,21 @@
             $("button").click(function () {
                 alert("a");
 
-                $.get($("#inp").val(), function (e)
-                {
-                    alert(e);
-                })
-                $.ajax({
-                    type: 'GET', 
-		    contentType: 'application/json',
-		    data: 'json',
-		    'Access-Control-Allow-Origin':"*",
-		    dataType: 'json',   
-                    url: $("#inp").val(),
-                    success: function (result)
-                    {
-					  alert(result);
-                    }
-                });
+		 var url = "https://testing-webapi.herokuapp.com/weatherforecast?json=sam";
+
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", url);
+
+		xhr.setRequestHeader("Access-Control-Allow-Origin" , "*");
+		xhr.setRequestHeader("Access-Control-Allow-Credentials" , "true");
+
+		xhr.onreadystatechange = function () {
+		   if (xhr.readyState === 4) {
+		      console.log(xhr.status);
+		      console.log(xhr.responseText);
+		   }};
+
+		xhr.send();
                 alert("b");
 			});
 		});
